@@ -1,14 +1,20 @@
 import esbuild from 'esbuild'
-import path from 'path'
+import path, { dirname, basename } from 'path'
+import { fileURLToPath } from 'url';
 import { exec } from 'child_process'
 import os from 'os'
 
-const step = process.argv[2]
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
+const parentDir = basename(__dirname)
+
+let step = process.argv[2]
 const PORT = process.argv[3] || 5500 // default for Live Server
 
+
 if (!step) {
-  console.error('Usage: node build.mjs <step>')
-  process.exit(1)
+  console.warn('\nUsage: node build.mjs <step>\nLaunching the app in folder 01 by default:\n\nnode build.mjs 01\n')
+  step = "01"
 }
 
 const entry = path.join(step, 'App.jsx')
@@ -44,7 +50,7 @@ function openCommand(target) {
   }
 }
 
-const url = `http://localhost:${PORT}/${step}/index.html`
+const url = `http://localhost:${PORT}/${parentDir}/${step}/index.html`
 
 exec(openCommand(url), err => {
   if (err) {
