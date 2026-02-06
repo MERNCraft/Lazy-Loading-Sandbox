@@ -43,6 +43,7 @@ Before you start, you need to install three node modules. Open a Terminal window
 
 This will add a folder named `node_modules`, which will give you all the capabilities of React, and the ability to bundle the JSX scripts correctly.
 
+```
 .
 ├── 01/
 ├── .../
@@ -58,6 +59,7 @@ This will add a folder named `node_modules`, which will give you all the capabil
 ├── package-lock.json
 ├── package.json
 └── README.md
+```
 
 ## Building all the mini-apps at once
 
@@ -67,6 +69,7 @@ Each mini-app is contained in a numbered folder.
 
 This will tell the `build.mjs` script to create a `dist/` subfolder inside each of the numbered folders. This will look something like this, but the exact names of the files may be different:
 
+```
 .
 ├── 01
 │   ├── App.jsx
@@ -87,6 +90,7 @@ This will tell the `build.mjs` script to create a `dist/` subfolder inside each 
 ├── package-lock.json
 ├── package.json
 └── README.md
+```
 
 ## Launching an index.html file
 
